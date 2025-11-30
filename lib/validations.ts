@@ -5,7 +5,7 @@ export const cooperationSchema = z.object({
   contact: z.string().min(2, 'Bitte Ansprechpartner angeben'),
   email: z.string().email('Bitte gültige Email angeben'),
   budget: z.enum(['<5k', '5-10k', '10-25k', '25k+'], {
-    required_error: 'Bitte Budget-Range wählen',
+    message: 'Bitte Budget-Range wählen',
   }),
   channels: z.array(z.string()).min(1, 'Bitte mindestens einen Kanal wählen'),
   targetAudience: z.string().optional(),
@@ -28,4 +28,3 @@ export const applicationSchema = z.object({
 })
 
 export type ApplicationFormData = z.infer<typeof applicationSchema>
-
